@@ -48,7 +48,9 @@ module.exports = merge.smart(common, {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true
+                            modules: {
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
+                            }
                         },
                     },
                 ],
