@@ -38,8 +38,21 @@ module.exports = merge.smart(common, {
                 use: [
                     MiniCssExtractPlugin.loader, // 2 - Extracts css into files
                     "css-loader", // 1 - Turns css into commonjs
-                ]
-            }
-        ]
+                ],
+                exclude: /\.module\.css$/
+            },
+            {
+                test: /\.module\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        },
+                    },
+                ],
+            },
+        ],
     }
 });

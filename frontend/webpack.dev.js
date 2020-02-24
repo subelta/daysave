@@ -20,8 +20,21 @@ module.exports = merge.smart(common, {
                 use: [
                     "style-loader", // 2 - Inject styles into DOM
                     "css-loader", // 1 - Turns css into commonjs
-                ]
-            }
+                ],
+                exclude: /\.module\.css$/
+            },
+            {
+                test: /\.module\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        },
+                    },
+                ],
+            },
         ]
     }
 });
