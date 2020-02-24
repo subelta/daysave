@@ -7,7 +7,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = merge(common, {
+module.exports = merge.smart(common, {
     mode: "production",
     output: {
         filename: "[name].[contentHash].bundle.js",
