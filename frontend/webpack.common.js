@@ -1,14 +1,24 @@
 module.exports = {
     entry: {
-        main: "./src/index.jsx",
+        main: "./src/index.tsx",
     },
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /[\\/]node_modules[\\/]/,
+                loader: "ts-loader"
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /[\\/]node_modules[\\/]/,
-                loader: "babel-loader",
-                options: { presets: ["@babel/env"] }
+                use: [
+                    "source-map-loader",
+                    {
+                        loader: "babel-loader",
+                        options: { presets: ["@babel/env"] }
+                    }
+                ],
             },
             {
                 test: /\.html$/,
@@ -25,5 +35,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', 'json'],
+    },
 };

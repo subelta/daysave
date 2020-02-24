@@ -13,6 +13,7 @@ module.exports = merge.smart(common, {
             template: "public/index.html"
         })
     ],
+    devtool: 'source-map',
     module: {
         rules: [
             {
