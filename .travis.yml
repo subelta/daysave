@@ -1,6 +1,7 @@
 language: node_js
+node_js: 12
 install:
   - cd frontend
   - npm install
 script:
-  - npm start
+  - npm run build
