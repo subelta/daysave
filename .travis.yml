@@ -10,6 +10,7 @@ matrix:
         -in daysave_key_rsa.enc -out daysave_key_rsa -d
     before_script:
       - cd backend
+      - sudo apt-get install python3-venv
       - python3 -m venv venv
       - source venv/bin/activate 
       - pip install -r requirements.txt
