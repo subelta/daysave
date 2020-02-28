@@ -8,6 +8,9 @@ matrix:
         -in daysave_key_rsa.enc -out daysave_key_rsa -d
     before_script:
       - cd backend
+      - python3 -m venv venv
+      - source venv/bin/activate
+      - pip install -r requirements.txt
       - python manage.py makemigrations
       - python manage.py migrate
       - cd ../
