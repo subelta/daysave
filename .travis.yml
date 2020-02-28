@@ -1,18 +1,22 @@
 matrix:
   include:
-    language: node_js
+    language: python
     python:
-    - '3.7'
+      - '3.7'
     before_install:
-    - openssl aes-256-cbc -K $encrypted_eb71193fb397_key -iv $encrypted_eb71193fb397_iv
-      -in daysave_key_rsa.enc -out daysave_key_rsa -d
-    - cd backend
-    install:
-    - cd frontend
-    - npm install
+      - openssl aes-256-cbc -K $encrypted_eb71193fb397_key -iv $encrypted_eb71193fb397_iv
+        -in daysave_key_rsa.enc -out daysave_key_rsa -d
+      - cd backend
     before_script:
-    - python manage.py makemigrations
-    - python manage.py migrate
+      - python manage.py makemigrations
+      - python manage.py migrate
     script:
-    - npm run build
+      - python manage.py test
+
+    language: node_js 
     node_js: 12
+    install:
+      - cd frontend 
+      - npm install 
+    script: 
+      - npm run build
