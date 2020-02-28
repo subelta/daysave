@@ -32,3 +32,16 @@ matrix:
       - cd frontend
       - npm run build
       - cd ../
+
+
+before_deploy:
+  - eval "$(ssh-agent -s)"
+  - mkdir -p ~/.ssh && echo "Host *" >  ~/.ssh/config && echo " StrictHostKeyChecking no" >> ~/.ssh/config 
+  - chmod 600 daysave_key_rsa
+
+deploy: 
+  provider: script 
+  skip_cleanup: true 
+  script: rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/build/ root@104.248.226.203:/home
+  on: 
+    branch: deploy
