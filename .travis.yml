@@ -1,0 +1,3 @@
+before_install:
+- openssl aes-256-cbc -K $encrypted_eb71193fb397_key -iv $encrypted_eb71193fb397_iv
+  -in daysave_rsa.enc -out daysave_rsa -d
