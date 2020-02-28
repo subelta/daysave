@@ -1,4 +1,5 @@
 {
+    "ignorePatterns": ["*.d.ts", "webpack.*"],
     "env": {
         "browser": true,
         "es6": true

@@ -1,16 +1,16 @@
-const common = require("./webpack.common");
-const merge = require("webpack-merge");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const common = require('./webpack.common')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge.smart(common, {
-    mode: "development",
+    mode: 'development',
     output: {
-        filename: "[name].bundle.js",
+        filename: '[name].bundle.js',
         path: undefined
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "public/index.html"
+            template: 'public/index.html'
         })
     ],
     devtool: 'source-map',
@@ -19,8 +19,8 @@ module.exports = merge.smart(common, {
             {
                 test: /\.css$/,
                 use: [
-                    "style-loader", // 2 - Inject styles into DOM
-                    "css-loader", // 1 - Turns css into commonjs
+                    'style-loader', // 2 - Inject styles into DOM
+                    'css-loader', // 1 - Turns css into commonjs
                 ],
                 exclude: /\.module\.css$/
             },
@@ -40,4 +40,4 @@ module.exports = merge.smart(common, {
             },
         ]
     }
-});
+})
