@@ -41,7 +41,7 @@ before_deploy:
   - sudo apt-get update
   - sudo apt-get install rsync
   - echo "LOL"
-  - ls
+  - pwd
   - echo "LOL"
 
 deploy: 
