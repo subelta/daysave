@@ -1,29 +1,42 @@
 module.exports = {
     entry: {
-        main: "./src/index.jsx",
+        main: './src/index.tsx',
     },
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /[\\/]node_modules[\\/]/,
+                loader: 'ts-loader'
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /[\\/]node_modules[\\/]/,
-                loader: "babel-loader",
-                options: { presets: ["@babel/env"] }
+                use: [
+                    'source-map-loader',
+                    {
+                        loader: 'babel-loader',
+                        options: { presets: ['@babel/env'] }
+                    }
+                ],
             },
             {
                 test: /\.html$/,
-                use: ["html-loader"]
+                use: ['html-loader']
             },
             {
                 test: /\.(svg|png|jpg|gif)$/,
                 use: {
-                    loader: "file-loader",
+                    loader: 'file-loader',
                     options: {
-                        name: "[name].[hash].[ext]",
-                        outputPath: "media"
+                        name: '[name].[hash].[ext]',
+                        outputPath: 'media'
                     }
                 }
             }
         ]
-    }
-};
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', 'json'],
+    },
+}
