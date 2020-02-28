@@ -16,7 +16,7 @@ matrix:
     language: node_js 
     node_js: 12
     install:
-      - cd frontend 
+      - cd ../frontend 
       - npm install 
     script: 
       - npm run build
