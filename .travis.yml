@@ -47,6 +47,6 @@ before_deploy:
 deploy: 
   provider: script 
   skip_cleanup: true 
-  script: rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/build/ root@104.248.226.203:/home/bulat2960
+  script: rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/ root@104.248.226.203:/home/bulat2960
   on: 
     branch: deploy
