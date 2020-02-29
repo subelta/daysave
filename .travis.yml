@@ -46,8 +46,11 @@ deploy:
   skip_cleanup: true 
   script:
     - rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/ root@104.248.226.203:/home/bulat2960
-    - cd backend/scripts
-    - sudo bash prelaunch.sh
-    - sudo bash launch.sh
   on: 
     branch: deploy
+
+after_deploy:
+  script:
+    - cd /home/bulat2960/backend/scripts
+    - sudo bash prelaunch.sh
+    - sudo bash launch.sh
