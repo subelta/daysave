@@ -36,8 +36,8 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - rsync -r --delete-after -e "ssh -i daysave_deploy_key" $TRAVIS_BUILD_DIR/ root@$server_name:/home/bulat2960
+  - rsync -r --delete-after -e "ssh -i daysave_deploy_key" $TRAVIS_BUILD_DIR/ root@$server_name:/home/bulat2960/dev/python/daysave
   on:
     branch: deploy
 after_deploy:
-  - ssh -i daysave_deploy_key root@$server_name 'cd /home/bulat2960/backend/scripts; sudo bash prelaunch.sh apt-get; sudo bash launch.sh'
+  - ssh -i daysave_deploy_key root@$server_name 'cd /home/bulat2960/dev/python/daysave/backend/scripts; sudo bash prelaunch.sh apt-get; sudo bash launch.sh'
