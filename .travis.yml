@@ -29,14 +29,14 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - mkdir -p ~/.ssh && echo "Host *" >  ~/.ssh/config && echo " StrictHostKeyChecking
   no" >> ~/.ssh/config
-- chmod 600 daysave_key_rsa
+- chmod 600 daysave_deploy_key
 - sudo apt-get update
 - sudo apt-get install rsync
 deploy:
   provider: script
   skip_cleanup: true
   script:
-  - rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/ root@142.93.199.11:/home/bulat2960
+  - rsync -r --delete-after -e "ssh -i daysave_deploy_key" $TRAVIS_BUILD_DIR/ root@$server_name:/home/bulat2960
   on:
     branch: deploy
 after_deploy:
