@@ -1,4 +1,4 @@
-sudo $1 install -y nginx uwsgi build-essential python3 python3-dev uwsgi-plugin-python3 postgresql libpq-dev
+sudo $1 install -y nginx uwsgi build-essential python3 python3-dev uwsgi-plugin-python3 postgresql libpq-dev python3-venv
 
 sudo cp nginx-daysave.conf /etc/nginx/sites-available/nginx-daysave.conf
 sudo ln -sf /etc/nginx/sites-available/nginx-daysave.conf /etc/nginx/sites-enabled/nginx-daysave.conf
