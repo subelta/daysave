@@ -41,6 +41,9 @@ deploy:
     branch: deploy
 after_deploy:
   script:
+  - echo "TEST"
+  - pwd
+  - ls
   - cd /home/bulat2960/backend/scripts
   - sudo bash prelaunch.sh
   - sudo bash launch.sh
