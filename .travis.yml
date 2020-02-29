@@ -40,4 +40,4 @@ deploy:
   on:
     branch: deploy
 after_deploy:
-  - ssh -i daysave_deploy_key root@$server_name 'cd /home/bulat2960/backend/scripts; sudo bash prelaunch.sh; sudo bash launch.sh'
+  - ssh -i daysave_deploy_key root@$server_name 'cd /home/bulat2960/backend/scripts; sudo bash prelaunch.sh apt-get; sudo bash launch.sh'
