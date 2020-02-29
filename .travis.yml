@@ -1,56 +1,46 @@
 dist: bionic
-
 matrix:
   include:
-    language: python
+    language: node_js
     python:
-      - '3.7'
+    - '3.7'
     before_install:
-      - openssl aes-256-cbc -K $encrypted_eb71193fb397_key -iv $encrypted_eb71193fb397_iv
-        -in daysave_key_rsa.enc -out daysave_key_rsa -d
+    - openssl aes-256-cbc -K $encrypted_eb71193fb397_key -iv $encrypted_eb71193fb397_iv
+      -in daysave_deploy_key.enc -out daysave_deploy_key -d
     before_script:
-      - cd backend
-      - sudo apt-get install python3-venv
-      - python3 -m venv venv
-      - source venv/bin/activate 
-      - pip install -r requirements.txt
-      - python manage.py makemigrations
-      - python manage.py migrate
-      - cd ../
+    - cd backend
+    - sudo apt-get install python3-venv
+    - python3 -m venv venv
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+    - python manage.py makemigrations
+    - python manage.py migrate
+    - cd ../
     script:
-      - cd backend
-      - python manage.py test
-      - cd ../
-
-    language: node_js 
+    - cd frontend
+    - npm run build
+    - cd ../
     node_js: 12
     install:
-      - cd frontend 
-      - npm install
-      - cd ../ 
-    script: 
-      - cd frontend
-      - npm run build
-      - cd ../
-
-
+    - cd frontend
+    - npm install
+    - cd ../
 before_deploy:
-  - eval "$(ssh-agent -s)"
-  - mkdir -p ~/.ssh && echo "Host *" >  ~/.ssh/config && echo " StrictHostKeyChecking no" >> ~/.ssh/config 
-  - chmod 600 daysave_key_rsa
-  - sudo apt-get update
-  - sudo apt-get install rsync
-
-deploy: 
-  provider: script 
-  skip_cleanup: true 
+- eval "$(ssh-agent -s)"
+- mkdir -p ~/.ssh && echo "Host *" >  ~/.ssh/config && echo " StrictHostKeyChecking
+  no" >> ~/.ssh/config
+- chmod 600 daysave_key_rsa
+- sudo apt-get update
+- sudo apt-get install rsync
+deploy:
+  provider: script
+  skip_cleanup: true
   script:
-    - rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/ root@104.248.226.203:/home/bulat2960
-  on: 
+  - rsync -r --delete-after -e "ssh -i daysave_key_rsa" $TRAVIS_BUILD_DIR/ root@104.248.226.203:/home/bulat2960
+  on:
     branch: deploy
-
 after_deploy:
   script:
-    - cd /home/bulat2960/backend/scripts
-    - sudo bash prelaunch.sh
-    - sudo bash launch.sh
+  - cd /home/bulat2960/backend/scripts
+  - sudo bash prelaunch.sh
+  - sudo bash launch.sh
