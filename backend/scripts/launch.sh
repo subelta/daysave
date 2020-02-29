@@ -1,2 +1,2 @@
 sudo service nginx restart
-# sudo uwsgi --ini haboard-wsgi-local.ini
+sudo uwsgi --ini uwsgi-daysave.ini
