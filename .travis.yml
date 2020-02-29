@@ -40,7 +40,6 @@ deploy:
   on:
     branch: deploy
 after_deploy:
-  script:
   - ssh -i daysave_deploy_key root@$server_name 'pwd'
   - ssh -i daysave_deploy_key root@$server_name 'ls'
   - ssh -i daysave_deploy_key root@$server_name 'cd /home/bulat2960/backend/scripts'
