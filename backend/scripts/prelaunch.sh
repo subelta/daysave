@@ -6,12 +6,12 @@ sudo mkdir -p /run/uwsgi
 
 # psql -U postgres -h localhost -d postgres -f db-prepare-script.sql
 
-# cd ../haboard
-# python3 -m venv venv
-# source venv/bin/activate
+cd ../
+python3 -m venv venv
+source venv/bin/activate
 
-# pip install wheel
-# pip install -r requirements.txt
+pip install wheel
+pip install -r requirements.txt
 
 # touch localsettings.txt
 # echo -e "USER admin\nPASSWORD qwert9102" > localsettings.txt
