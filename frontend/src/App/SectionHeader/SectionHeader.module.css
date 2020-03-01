@@ -1,0 +1,7 @@
+:root {
+    --sectionHeaderHeight: 133px;
+}
+
+.sectionHeader {
+    height: var(--sectionHeaderHeight)
+}

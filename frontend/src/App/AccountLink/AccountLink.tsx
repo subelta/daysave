@@ -1,8 +1,18 @@
 import React from 'react'
 import styles from './AccountLink.module.css'
 
-export const AccountLink: React.FC = () => {
+interface AccountLinkProps {
+    avatarUrl: string
+    accountName: string
+}
+
+export const AccountLink: React.FC<AccountLinkProps> = props => {
+    const { avatarUrl, accountName } = props
+
     return (
-        <div>Account stuff</div>
+        <div className={styles.accountLink}>
+            <img src={avatarUrl} alt={'account avatar'} />
+            <span>{accountName}</span>
+        </div>
     )
 }

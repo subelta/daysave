@@ -1,18 +1,28 @@
 import React from 'react'
-import styles from './EntriesSection.module.css'
+import { v4 as uuid } from 'uuid'
 
-export const EntriesSection: React.FC = () => {
+import styles from './EntriesSection.module.css'
+import { SectionHeader } from '../SectionHeader/SectionHeader'
+import { EntryPreview, EntryPreviewProps } from './EntryPreview/EntryPreview'
+
+interface EntriesSectionProps {
+    templateName: string
+    previewEntries: EntryPreviewProps[]
+}
+
+export const EntriesSection: React.FC<EntriesSectionProps> = props => {
+    const { previewEntries, templateName } = props
+
     return (
         <section className={styles.entriesSection}>
-            <div>
-                {/*TODO h1 or h2*/}
-                <h2>Template entries</h2>
-                <button className={'new-entry'}>New entry</button>
-            </div>
-            <ul className={'entries-list'}>
-                <li className={'entry'}>
-                    <article></article>
-                </li>
+            <div className={styles.correctionalDiv}/>
+            <SectionHeader heading={`${templateName} entries`} buttonText={'New Entry'}/>
+            <ul className={styles.entriesList}>
+                {previewEntries.map(obj => (
+                    <li key={uuid()}>
+                        <EntryPreview {...obj}/>
+                    </li>
+                ))}
             </ul>
         </section>
     )
