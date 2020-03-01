@@ -1,0 +1,7 @@
+:root {
+    --accountLinkHeight: 55px;
+}
+
+.accountLink {
+    height: var(--accountLinkHeight)
+}

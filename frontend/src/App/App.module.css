@@ -1,0 +1,16 @@
+:root {
+    --columns-width-sum: 600px;
+}
+
+.app {
+    height: 100vh;
+    display: grid;
+    grid-template-columns:
+            calc(var(--columns-width-sum) / (1 + 3.24 / 2))
+            calc(var(--columns-width-sum) / (1 + 2 / 3.24))
+            minmax(400px, auto);
+}
+
+.leftColumn {
+    background: #616161;
+}

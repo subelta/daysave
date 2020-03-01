@@ -45,6 +45,7 @@
         "react/display-name": "off",
         "react/prop-types": "off",
         "prefer-const": "error",
-        "react/destructuring-assignment": ["error", "always"]
+        "react/destructuring-assignment": ["error", "always"],
+        "no-unused-vars": ["warn"]
     }
 }
