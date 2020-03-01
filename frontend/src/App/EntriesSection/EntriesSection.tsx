@@ -3,7 +3,7 @@ import styles from './EntriesSection.module.css'
 
 export const EntriesSection: React.FC = () => {
     return (
-        <section>
+        <section className={styles.entriesSection}>
             <div>
                 {/*TODO h1 or h2*/}
                 <h2>Template entries</h2>

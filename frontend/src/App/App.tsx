@@ -9,7 +9,7 @@ import { AccountLink } from './AccountLink/AccountLink'
 export const App = React.memo(() => {
     return (
         <main className={styles.app}>
-            <section>
+            <section className={styles.leftColumn}>
                 <AccountLink />
                 <TemplatesSection />
             </section>
