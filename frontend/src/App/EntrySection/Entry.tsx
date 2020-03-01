@@ -12,11 +12,8 @@ export const Entry: React.FC<Entry> = props => {
     return (
         <section className={styles.entrySection}>
             <article className={styles.entry}>
-                <header>
-                    <h2>{entryHeading}</h2>
-                </header>
-                {/*TODO maybe section or div?*/}
-                <p>{entryText}</p>
+                <h2>{entryHeading}</h2>
+                <div>{entryText}</div>
             </article>
         </section>
     )
