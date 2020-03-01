@@ -15,15 +15,16 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
 
     return (
         <section className={styles.entriesSection}>
-            <div className={styles.correctionalDiv}/>
-            <SectionHeader heading={`${templateName} entries`} buttonText={'New Entry'}/>
-            <ul className={styles.entriesList}>
-                {previewEntries.map(obj => (
-                    <li key={uuid()}>
-                        <EntryPreview {...obj}/>
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.entriesContainer}>
+                <SectionHeader heading={`${templateName} entries`} buttonText={'New Entry'}/>
+                <ul className={styles.entriesList}>
+                    {previewEntries.map(obj => (
+                        <li key={uuid()}>
+                            <EntryPreview {...obj}/>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </section>
     )
 }

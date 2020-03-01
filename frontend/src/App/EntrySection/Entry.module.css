@@ -1,3 +1,9 @@
-.correctionalDiv {
-    height: var(--accountLinkHeight);
+.entrySection {
+    display: grid;
+    grid-template-areas: 'idk' 'entry';
+    grid-template-rows: var(--accountLinkHeight) auto;
+}
+
+.entry {
+    grid-area: entry
 }

@@ -10,13 +10,12 @@ export const Entry: React.FC<Entry> = props => {
     const { entryHeading, entryText } = props
 
     return (
-        <section>
-            <div className={styles.correctionalDiv}/>
-            <article>
+        <section className={styles.entrySection}>
+            <article className={styles.entry}>
                 <header>
                     <h2>{entryHeading}</h2>
                 </header>
-                {/*TODO is section nesessary?*/}
+                {/*TODO maybe section or div?*/}
                 <p>{entryText}</p>
             </article>
         </section>
