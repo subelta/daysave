@@ -1,5 +1,7 @@
 # daysave
 
+Our website: [Daysave](https://daysave.site)
+
 This project is bringing templated notetaking and daily logging to a new level of simplicity and style for free
 
 [Roadmap](https://github.com/subelta/daysave/wiki/Roadmap)
