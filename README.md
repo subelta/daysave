@@ -1,6 +1,6 @@
 # daysave
 
-Look at the [deployed app](https://daysave.site)
+Check out the [deployed app](https://daysave.site) (but better not yet)
 
 This project is bringing templated notetaking and daily logging to a new level of simplicity and style for free
 
