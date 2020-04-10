@@ -1,3 +1,5 @@
+@import url("~StyleSettings/index.css");
+
 .accountLink {
     height: var(--accountLinkHeight)
 }

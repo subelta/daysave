@@ -3,7 +3,6 @@ import { v4 as uuid } from 'uuid'
 
 import styles from './TemplatesSection.module.css'
 import { SectionHeader } from '../SectionHeader/SectionHeader'
-import 'StyleSettings/styleSettings.css'
 
 interface TemplateName {
     name: string

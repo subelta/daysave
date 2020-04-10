@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './AccountLink.module.css'
-import 'StyleSettings/styleSettings.css'
 
 interface AccountLinkProps {
     avatarUrl: string

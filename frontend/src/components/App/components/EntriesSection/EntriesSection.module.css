@@ -1,3 +1,5 @@
+@import url("~StyleSettings/index.css");
+
 .entriesList {
     list-style: none;
     margin: 0;
