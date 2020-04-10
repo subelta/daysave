@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from './App.module.css'
 
-import { EntriesSection } from './EntriesSection/EntriesSection'
-import { Entry } from './EntrySection/Entry'
-import { TemplatesSection } from './TemplatesSection/TemplatesSection'
-import { AccountLink } from './AccountLink/AccountLink'
+import styles from './App.module.css'
+import { EntriesSection } from './components/EntriesSection/EntriesSection'
+import { Entry } from './components/EntrySection/Entry'
+import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
+import { AccountLink } from './components/AccountLink/AccountLink'
 
 export const App = React.memo(() => {
     const templateNames = [

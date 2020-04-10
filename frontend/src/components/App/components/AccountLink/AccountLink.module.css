@@ -1,6 +1,4 @@
-:root {
-    --accountLinkHeight: 55px;
-}
+@import '../../styleSettings/styleSettings.css';
 
 .accountLink {
     height: var(--accountLinkHeight)

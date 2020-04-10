@@ -1,3 +1,5 @@
+@import '../../styleSettings/styleSettings.css';
+
 .entrySection {
     display: grid;
     grid-template-areas: 'idk' 'entry';

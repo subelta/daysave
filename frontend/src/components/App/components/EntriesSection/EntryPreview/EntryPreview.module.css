@@ -1,0 +1,5 @@
+@import '../../../styleSettings/styleSettings.css';
+
+.entryPreview {
+    display: flex;
+}

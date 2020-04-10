@@ -1,8 +1,8 @@
-:root {
-    --columns-width-sum: 600px;
-}
+@import './styleSettings/styleSettings.css';
 
 .app {
+    font-family: var(--main-font);
+
     height: 100vh;
     display: grid;
     grid-template-columns:

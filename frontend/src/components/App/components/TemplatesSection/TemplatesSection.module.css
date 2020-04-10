@@ -1,3 +1,5 @@
+@import '../../styleSettings/styleSettings.css';
+
 .colorDot {
     display: inline-block;
     height: 10px;
