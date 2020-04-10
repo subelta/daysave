@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
     entry: {
         main: './src/index.tsx',
@@ -37,6 +39,10 @@ module.exports = {
         ]
     },
     resolve: {
+        alias: {
+            StyleSettings: path.resolve(__dirname, './src/components/App/styleSettings'),
+            Utils: path.resolve(__dirname, './src/utils'),
+        },
         extensions: ['.js', '.jsx', '.ts', '.tsx', 'json'],
     },
 }

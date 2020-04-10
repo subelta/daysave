@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styles from './EntryPreview.module.css'
+import 'StyleSettings/styleSettings.css'
 
 export interface EntryPreviewProps {
     date: string

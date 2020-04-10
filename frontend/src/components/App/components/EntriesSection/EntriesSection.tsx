@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 import styles from './EntriesSection.module.css'
 import { SectionHeader } from '../SectionHeader/SectionHeader'
 import { EntryPreview, EntryPreviewProps } from './EntryPreview/EntryPreview'
+import 'StyleSettings/styleSettings.css'
 
 interface EntriesSectionProps {
     templateName: string

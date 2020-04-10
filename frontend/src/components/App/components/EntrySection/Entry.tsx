@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Entry.module.css'
+import 'StyleSettings/styleSettings.css'
 
 interface Entry {
     entryHeading: string

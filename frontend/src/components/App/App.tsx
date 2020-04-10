@@ -5,6 +5,8 @@ import { EntriesSection } from './components/EntriesSection/EntriesSection'
 import { Entry } from './components/EntrySection/Entry'
 import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
 import { AccountLink } from './components/AccountLink/AccountLink'
+import 'StyleSettings/styleSettings.css'
+import { testFunc } from 'Utils/test'
 
 export const App = React.memo(() => {
     const templateNames = [
