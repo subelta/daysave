@@ -1,7 +1,6 @@
 import React from 'react'
-
-import { AccountLink } from './AccountLink'
 import styles from './AccountLink.module.css'
+import { AccountLink } from './AccountLink'
 
 export default { title: 'AccountLink' }
 

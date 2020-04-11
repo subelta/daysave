@@ -7,7 +7,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/eslint-recommended"
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -26,26 +27,29 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
+        "@typescript-eslint/member-delimiter-style": ["error",{
+            "multiline": {
+                "delimiter": "none",
+                "requireLast": true
+            },
+            "singleline": {
+                "delimiter": "semi",
+                "requireLast": false
+            }
+        }],
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "max-len": ["error", {"code": 100}],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-extra-parens": ["error", "all", { "ignoreJSX": "multi-line" }],
+        "no-trailing-spaces": "error",
+        "no-unused-vars": ["warn"],
+        "prefer-const": "error",
+        "quotes": ["error", "single"],
+        "react/destructuring-assignment": ["error", "always"],
         "react/display-name": "off",
         "react/prop-types": "off",
-        "prefer-const": "error",
-        "react/destructuring-assignment": ["error", "always"],
-        "no-unused-vars": ["warn"]
+        "semi": ["error", "never"],
+        "sort-keys": "error"
     }
 }
