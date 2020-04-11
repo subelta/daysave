@@ -15,5 +15,5 @@
 
     display: grid;
     grid-template-areas: 'idk' 'entriesContainer';
-    grid-template-rows: var(--accountLinkHeight) auto;
+    grid-template-rows: var(--topRowHeight) auto;
 }

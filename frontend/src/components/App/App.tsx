@@ -47,7 +47,7 @@ export const App = React.memo(() => {
     return (
         <main className={styles.app}>
             <section className={styles.leftColumn}>
-                <AccountLink avatarUrl={'./'} accountName={'Guest'}/>
+                <AccountLink />
                 <TemplatesSection templateNames={templateNames} />
             </section>
             <EntriesSection previewEntries={previewEntries} templateName={templateName}/>

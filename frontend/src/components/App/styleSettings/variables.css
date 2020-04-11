@@ -1,5 +1,5 @@
 :root {
-    --accountLinkHeight: 55px;
+    --topRowHeight: 55px;
     --columns-width-sum: 600px;
 
     --main-font: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;

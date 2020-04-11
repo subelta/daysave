@@ -1,5 +1,32 @@
 @import url("~StyleSettings/index.css");
 
 .accountLink {
-    height: var(--accountLinkHeight)
+    height: 33px;
+
+    font-family: var(--main-font);
+    font-size: 13px;
+}
+
+.guestIcon {
+    display: inline-block;
+    background-color: var(--color-grey);
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+
+    color: var(--color-white);
+    line-height: 33px;
+    text-align: center;
+}
+
+.user {
+    margin: 0 0 0 19px;
+    display: inline-block;
+
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.storybook {
+    color: cornflowerblue;
 }

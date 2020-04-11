@@ -1,18 +1,18 @@
 import React from 'react'
+
 import styles from './AccountLink.module.css'
 
-interface AccountLinkProps {
-    avatarUrl: string
-    accountName: string
+interface Props {
+    className?: string
 }
 
-export const AccountLink: React.FC<AccountLinkProps> = props => {
-    const { avatarUrl, accountName } = props
+export const AccountLink: React.FC<Props> = props => {
+    const { className } = props
 
     return (
-        <div className={styles.accountLink}>
-            <img src={avatarUrl} alt={'account avatar'} />
-            <span>{accountName}</span>
-        </div>
+        <section className={`${styles.accountLink} ${className || ''}`}>
+            <span className={styles.guestIcon}>G</span>
+            <h2 className={styles.user}>Guest</h2>
+        </section>
     )
 }
