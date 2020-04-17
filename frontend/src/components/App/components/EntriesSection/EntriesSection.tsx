@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import { v4 as uuid } from 'uuid'
 
 import styles from './EntriesSection.module.css'
@@ -13,10 +13,16 @@ interface EntriesSectionProps {
 export const EntriesSection: React.FC<EntriesSectionProps> = props => {
     const { previewEntries, templateName } = props
 
+    const handleClick = useCallback(() => undefined, [])
+
     return (
         <section className={styles.entriesSection}>
             <div className={styles.entriesContainer}>
-                <SectionHeader heading={`${templateName} entries`} buttonText={'New Entry'}/>
+                <SectionHeader
+                    heading={`${templateName} entries`}
+                    buttonText={'New Entry'}
+                    onClick={handleClick}
+                />
                 <ul className={styles.entriesList}>
                     {previewEntries.map(obj => (
                         <li key={uuid()}>

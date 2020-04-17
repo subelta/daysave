@@ -1,3 +1,5 @@
+@import url("~StyleSettings/index.css");
+
 .app {
     font-family: var(--main-font);
 
@@ -10,5 +12,14 @@
 }
 
 .leftColumn {
-    background: #616161;
+    background: var(--color-dark-grey);
+
+    display: grid;
+    grid-template-areas: 'idk' 'entriesTemplatesSection';
+    grid-template-rows: var(--topRowHeight) auto;
+}
+
+.accountLink {
+    color: var(--color-white);
+    margin: 15px 0 0 15px;
 }

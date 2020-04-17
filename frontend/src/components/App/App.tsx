@@ -9,10 +9,10 @@ import { testFunc } from 'Utils/test'
 
 export const App = React.memo(() => {
     const templateNames = [
-        { name: 'Food log', color: 'red' },
-        { name: 'Health log', color: 'lightcoral' },
-        { name: 'Ideas log', color: 'teal' },
-        { name: 'Food log', color: 'green' }
+        { color: 'red', name: 'Food log' },
+        { color: 'lightcoral', name: 'Health log' },
+        { color: 'teal', name: 'Ideas log' },
+        { color: 'green', name: 'Food log' }
     ]
 
     const templateName = 'Food log'
@@ -47,7 +47,7 @@ export const App = React.memo(() => {
     return (
         <main className={styles.app}>
             <section className={styles.leftColumn}>
-                <AccountLink />
+                <AccountLink className={styles.accountLink}/>
                 <TemplatesSection templateNames={templateNames} />
             </section>
             <EntriesSection previewEntries={previewEntries} templateName={templateName}/>

@@ -1,0 +1,15 @@
+body {
+    font-family: var(--main-font);
+    font-size: 14px;
+
+    margin: 0;
+}
+
+button {
+    font-family: var(--main-font);
+    font-size: 14px;
+
+    border: none;
+    background: transparent;
+    padding: 0;
+}

@@ -4,6 +4,6 @@
     --sectionHeaderHeight: 133px;
 }
 
-.sectionHeader {
+.container {
     height: var(--sectionHeaderHeight)
 }

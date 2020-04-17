@@ -32,7 +32,7 @@ module.exports = {
 						use: ['html-loader']
 					},
 					{
-						test: /\.(svg|png|jpg|gif)$/,
+						test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf)$/,
 						use: {
 							loader: 'file-loader',
 							options: {

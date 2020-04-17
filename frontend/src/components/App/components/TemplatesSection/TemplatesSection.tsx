@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import { v4 as uuid } from 'uuid'
 
 import styles from './TemplatesSection.module.css'
@@ -9,19 +9,21 @@ interface TemplateName {
     color: string
 }
 
-interface TemplatesSectionProps {
+interface Props {
     templateNames: TemplateName[]
 }
 
-export const TemplatesSection: React.FC<TemplatesSectionProps> = props => {
+export const TemplatesSection: React.FC<Props> = props => {
     const { templateNames } = props
 
+    const handleClick = useCallback(() => undefined, [])
+
     return (
-        <section className={styles.templatesSection}>
-            <SectionHeader heading={'Templates'} buttonText={'New template'}/>
+        <section className={styles.container}>
+            <SectionHeader heading={'Templates'} buttonText={'New template'} onClick={handleClick}/>
             <ul className={styles.templatesList}>
                 {templateNames.map(obj => (
-                    <li className={styles.templateName} key={uuid()}>
+                    <li key={uuid()}>
                         <span className={styles.colorDot} style={{ background: obj.color }}/>
                         <span>{obj.name}</span>
                     </li>

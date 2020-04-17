@@ -1,18 +1,27 @@
-import React from 'react'
-import styles from './SectionHeader.module.css'
+import React, { useCallback } from 'react'
 
-interface SectionHeaderProps {
-    heading: string
+import styles from './SectionHeader.module.css'
+import { AddButton } from './AddButton/AddButton'
+
+interface Props {
     buttonText: string
+    heading: string
+    light?: boolean
+
+    onClick: () => void
 }
 
-export const SectionHeader: React.FC<SectionHeaderProps> = props => {
-    const { buttonText, heading } = props
+export const SectionHeader: React.FC<Props> = props => {
+    const { buttonText, heading, onClick } = props
+
+    const handleClick = useCallback(() => {
+        onClick()
+    }, [onClick])
 
     return (
-        <header className={styles.sectionHeader}>
+        <header className={styles.container}>
             <h2>{heading}</h2>
-            <button>{buttonText}</button>
+            <AddButton onClick={handleClick} text={buttonText} />
         </header>
     )
 }

@@ -1,1 +1,3 @@
 @import 'variables.css';
+@import '../media/roboto-font/style.css';
+@import 'defaultStyles.css';

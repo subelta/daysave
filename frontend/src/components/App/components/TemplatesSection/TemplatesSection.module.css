@@ -1,5 +1,9 @@
 @import url("~StyleSettings/index.css");
 
+.container {
+    color: var(--color-white);
+}
+
 .colorDot {
     display: inline-block;
     height: 10px;

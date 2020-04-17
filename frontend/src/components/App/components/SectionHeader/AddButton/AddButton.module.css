@@ -1,0 +1,27 @@
+@import url("~StyleSettings/index.css");
+
+.dark {
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.light {
+    cursor: pointer;
+    color: var(--color-white);
+}
+
+.dark span,
+.light span {
+    vertical-align: 5px;
+    margin-left: 13px;
+}
+
+.dark:disabled,
+.light:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.storybook {
+    color: red;
+}

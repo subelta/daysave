@@ -11,7 +11,7 @@
 }
 
 .entriesSection {
-    background-color: lightgrey;
+    background-color: var(--style-grey-default);
 
     display: grid;
     grid-template-areas: 'idk' 'entriesContainer';
