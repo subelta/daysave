@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+    <scope name="Stories" pattern="file:frontend/src//*.stories.tsx||file:frontend/src//*.stories.jsx" />
+</component>
