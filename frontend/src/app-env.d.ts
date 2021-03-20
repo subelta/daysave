@@ -13,6 +13,14 @@ declare module '*.png' {
     export default src
 }
 
+declare module '*.component.svg' {
+    import * as React from 'react'
+
+    const src: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+    // noinspection JSDuplicatedDeclaration
+    export default src
+}
+
 declare module '*.svg' {
     import * as React from 'react'
 
