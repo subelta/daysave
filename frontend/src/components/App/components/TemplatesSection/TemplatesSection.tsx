@@ -20,7 +20,7 @@ export const TemplatesSection: React.FC<Props> = props => {
 
     return (
         <section className={styles.container}>
-            <SectionHeader heading={'Templates'} buttonText={'New template'} onClick={handleClick}/>
+            <SectionHeader headingText={'Templates'} buttonText={'New template'} onClick={handleClick} />
             <ul className={styles.templatesList}>
                 {templateNames.map(obj => (
                     <li key={uuid()}>

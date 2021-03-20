@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './AddButton.module.css'
-import addIcon from '../../../../../media/add-icon.svg'
+import addIcon from '../../../../../media/plus.svg'
 
 interface Props {
     className?: string
@@ -16,7 +16,7 @@ export const AddButton: React.FC<Props> = props => {
 
     return (
         <button disabled={disabled} className={`${styles.button} ${className}`} onClick={onClick}>
-            <img alt={'plus icon'} src={addIcon}/>
+            <img alt={'plus icon'} src={addIcon} />
             <span>{text}</span>
         </button>
     )

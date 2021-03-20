@@ -5,5 +5,19 @@
 }
 
 .container {
-    height: var(--sectionHeaderHeight)
+    height: var(--sectionHeaderHeight);
+    margin-left: 18px;
+    position: relative;
+}
+
+.heading {
+    margin: 0;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 19px;
 }

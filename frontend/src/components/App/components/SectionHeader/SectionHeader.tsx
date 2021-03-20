@@ -5,14 +5,14 @@ import { AddButton } from './AddButton/AddButton'
 
 interface Props {
     buttonText: string
-    heading: string
+    headingText: string
     light?: boolean
 
     onClick: () => void
 }
 
 export const SectionHeader: React.FC<Props> = props => {
-    const { buttonText, heading, onClick } = props
+    const { buttonText, headingText, onClick } = props
 
     const handleClick = useCallback(() => {
         onClick()
@@ -20,8 +20,8 @@ export const SectionHeader: React.FC<Props> = props => {
 
     return (
         <header className={styles.container}>
-            <h2>{heading}</h2>
-            <AddButton onClick={handleClick} text={buttonText} />
+            <h2 className={styles.heading}>{headingText}</h2>
+            <AddButton className={styles.btn} onClick={handleClick} text={buttonText} />
         </header>
     )
 }

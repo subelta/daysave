@@ -19,14 +19,14 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
         <section className={styles.entriesSection}>
             <div className={styles.entriesContainer}>
                 <SectionHeader
-                    heading={`${templateName} entries`}
+                    headingText={`${templateName} entries`}
                     buttonText={'New Entry'}
                     onClick={handleClick}
                 />
                 <ul className={styles.entriesList}>
                     {previewEntries.map(obj => (
                         <li key={uuid()}>
-                            <EntryPreview {...obj}/>
+                            <EntryPreview {...obj} />
                         </li>
                     ))}
                 </ul>
