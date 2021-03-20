@@ -39,7 +39,7 @@
         }],
         "indent": ["error", 4],
         "linebreak-style": ["error", "unix"],
-        "max-len": ["error", {"code": 100}],
+        "max-len": ["error", {"code": 110}],
         "no-console": ["error", { "allow": ["warn", "error"] }],
         "no-extra-parens": ["error", "all", { "ignoreJSX": "all" }],
         "no-trailing-spaces": "error",
@@ -48,6 +48,7 @@
         "quotes": ["error", "single"],
         "react/destructuring-assignment": ["error", "always"],
         "react/display-name": "off",
+        "react/jsx-tag-spacing": 1,
         "react/prop-types": "off",
         "semi": ["error", "never"],
         "sort-keys": "error"
