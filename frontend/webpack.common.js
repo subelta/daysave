@@ -34,12 +34,18 @@ module.exports = {
                         name: '[name].[hash].[ext]',
                         outputPath: 'media'
                     }
-                }
-            }
+                },
+                exclude: [/\.component\.svg$/]
+            },
+            {
+                test: /\.component\.svg$/,
+                use: ['@svgr/webpack'],
+            },
         ]
     },
     resolve: {
         alias: {
+            Media: path.resolve(__dirname, './src/media'),
             StyleSettings: path.resolve(__dirname, './src/components/App/styleSettings'),
             Utils: path.resolve(__dirname, './src/utils'),
         },
