@@ -1,19 +1,22 @@
 @import url("~StyleSettings/index.css");
 
-.entriesList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.entriesContainer {
-    grid-area: entriesContainer;
-}
-
-.entriesSection {
-    background-color: var(--style-grey-default);
-
+.container {
     display: grid;
     grid-template-areas: 'idk' 'entriesContainer';
     grid-template-rows: var(--topRowHeight) auto;
+
+    background-color: var(--style-grey-default);
+    border-right: 1px solid var(--style-grey-border);
+}
+
+.entriesContainerGridArea {
+    grid-area: entriesContainer;
+}
+
+.entriesList {
+    border-top: 1px solid var(--style-grey-border);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

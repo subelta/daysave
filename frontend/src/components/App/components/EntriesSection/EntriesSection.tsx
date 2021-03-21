@@ -16,8 +16,8 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
     const handleClick = useCallback(() => undefined, [])
 
     return (
-        <section className={styles.entriesSection}>
-            <div className={styles.entriesContainer}>
+        <section className={styles.container}>
+            <div className={styles.entriesContainerGridArea}>
                 <SectionHeader
                     headingText={`${templateName} entries`}
                     buttonText={'New Entry'}

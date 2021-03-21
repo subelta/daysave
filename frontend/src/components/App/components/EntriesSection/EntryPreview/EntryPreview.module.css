@@ -1,5 +1,52 @@
 @import url("~StyleSettings/index.css");
 
-.entryPreview {
+.containerBtn {
+    height: 108px;
+    width: 100%;
+    text-align: start;
+    cursor: pointer;
+    border-bottom: 1px solid var(--style-grey-border);
+}
+
+.containerBtn:hover {
+    background-color: var(--style-grey-selected);
+}
+
+.block {
+    display: block;
+    height: 108px;
+    width: 100%;
+}
+
+.header {
     display: flex;
+    justify-content: space-between;
+    padding: 18px 18px 6px 18px;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.trash > path {
+    stroke-opacity: 0;
+    stroke: var(--color-grey-darker);
+}
+
+.containerBtn:hover .trash > path {
+    stroke-opacity: 1;
+}
+
+.trash:hover > path {
+    stroke: var(--color-black);
+}
+
+.description {
+    display: block;
+
+    padding: 0 0 0 18px;
+    font-size: 13px;
+    line-height: 15px;
 }

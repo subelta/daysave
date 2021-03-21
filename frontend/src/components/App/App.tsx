@@ -20,7 +20,6 @@ export const App = React.memo(() => {
     const previewEntries = [
         {
             date: '1 mar',
-            imgUrl: 'jih',
             text: 'drtfgh gyuuhjoiy'
         },
         {
@@ -47,10 +46,10 @@ export const App = React.memo(() => {
     return (
         <main className={styles.app}>
             <section className={styles.leftColumn}>
-                <AccountLink className={styles.accountLink}/>
+                <AccountLink className={styles.accountLink} />
                 <TemplatesSection templateNames={templateNames} />
             </section>
-            <EntriesSection previewEntries={previewEntries} templateName={templateName}/>
+            <EntriesSection previewEntries={previewEntries} templateName={templateName} />
             <Entry entryHeading={entryHeading} entryText={entryText} />
         </main>
     )
