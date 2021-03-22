@@ -1,0 +1,112 @@
+[
+    {
+        "name": "Food log",
+        "theme": "pink",
+        "entries": [
+            {
+                "date": "1 mar",
+                "text": "drtfgh gyuuhjoiy"
+            },
+            {
+                "date": "29 feb",
+                "text": "drtsd hjoiy"
+            },
+            {
+                "date": "28 feb",
+                "text": "hj ihkj lik"
+            },
+            {
+                "date": "27 feb",
+                "text": "fyjguhjk b gjh lk"
+            }
+        ]
+    },
+    {
+        "name": "Health log",
+        "theme": "green",
+        "entries": [
+            {
+                "date": "1 mar",
+                "text": "OTHER SHIT"
+            },
+            {
+                "date": "29 feb",
+                "text": "SHIT OTHER"
+            },
+            {
+                "date": "28 feb",
+                "text": "hj ihkj lik"
+            },
+            {
+                "date": "27 feb",
+                "text": "fyjguhjk b gjh lk"
+            }
+        ]
+    },
+    {
+        "name": "Ideas log",
+        "theme": "purple",
+        "entries": [
+            {
+                "date": "1 mar",
+                "text": "BLAH"
+            },
+            {
+                "date": "29 feb",
+                "text": "BLAH"
+            },
+            {
+                "date": "28 feb",
+                "text": "hj ihkj lik"
+            },
+            {
+                "date": "27 feb",
+                "text": "fyjguhjk b gjh lk"
+            }
+        ]
+    },
+    {
+        "name": "BULLSHIT LOG",
+        "theme": "grey",
+        "entries": [
+            {
+                "date": "1 mar",
+                "text": "AAAAA"
+            },
+            {
+                "date": "29 feb",
+                "text": "BULLSHIT"
+            },
+            {
+                "date": "28 feb",
+                "text": "hj ihkj lik"
+            },
+            {
+                "date": "27 feb",
+                "text": "fyjguhjk b gjh lk"
+            }
+        ]
+    },
+    {
+        "name": "some yellow log",
+        "theme": "yellow",
+        "entries": [
+            {
+                "date": "1 mar",
+                "text": "yellow"
+            },
+            {
+                "date": "29 feb",
+                "text": "yellow"
+            },
+            {
+                "date": "28 feb",
+                "text": "hj ihkj lik"
+            },
+            {
+                "date": "27 feb",
+                "text": "fyjguhjk b gjh lk"
+            }
+        ]
+    }
+]

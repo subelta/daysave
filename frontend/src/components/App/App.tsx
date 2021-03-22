@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styles from './App.module.css'
 import { EntriesSection } from './components/EntriesSection/EntriesSection'
@@ -6,14 +6,28 @@ import { Entry } from './components/EntrySection/Entry'
 import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
 import { AccountLink } from './components/AccountLink/AccountLink'
 import { testFunc } from 'Utils/test'
+import { Template } from './types' // TODO auto spaces when auto import
+
+const PATH_TO_DATA = 'public/data/data.json'
 
 export const App = React.memo(() => {
+    const [data, setData] = useState<Template[]>([])
+
+    useEffect(() => {
+        fetch(PATH_TO_DATA)
+            .then(response => response.json())
+            .then(json => setData(json))
+            .catch(console.error)
+    }, []) // TODO warn about no deps
+
     const templateNames = [
         { color: 'red', name: 'Food log' },
         { color: 'lightcoral', name: 'Health log' },
         { color: 'teal', name: 'Ideas log' },
         { color: 'green', name: 'Food log' }
     ]
+
+    console.log(data)
 
     const templateName = 'Food log'
 
