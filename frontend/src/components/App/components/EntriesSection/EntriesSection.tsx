@@ -29,13 +29,15 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
                 />
                 <ul className={styles.entriesList}>
                     {previewEntries.map(obj => (
-                        <EntryPreview
-                            key={uuid()}
-                            onChooseClick={onChooseClick.bind(undefined, obj.date)}
-                            onDeleteCLick={onDeleteCLick.bind(undefined, obj.date, templateName)}
-                            {...obj}
-                        />)
-                    )}
+                        <li key={uuid()}>
+                            <EntryPreview
+                                onChooseClick={onChooseClick}
+                                onDeleteCLick={onDeleteCLick}
+                                templateName={templateName}
+                                {...obj}
+                            />
+                        </li>
+                    ))}
                 </ul>
             </div>
         </section>
