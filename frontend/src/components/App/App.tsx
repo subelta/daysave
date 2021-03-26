@@ -58,7 +58,7 @@ export const App: React.FC = () => {
             <section className={styles.leftColumn}>
                 <AccountLink className={styles.accountLink} />
                 <TemplatesSection
-                    onChoseClick={handleChooseTemplate}
+                    onChooseClick={handleChooseTemplate}
                     onDeleteCLick={handleDeleteTemplate}
                     templates={templates}
                 />
