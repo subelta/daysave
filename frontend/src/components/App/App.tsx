@@ -1,21 +1,18 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
-import styles from './App.module.css'
+import { AccountLink } from './components/AccountLink/AccountLink'
 import { EntriesSection } from './components/EntriesSection/EntriesSection'
 import { Entry } from './components/EntrySection/Entry'
-import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
-import { AccountLink } from './components/AccountLink/AccountLink'
+import { EntryPreviewProps } from './components/EntriesSection/EntryPreview/EntryPreview'
 import { Template } from './types'
-// TODO auto spaces when auto import
-// TODO alphabetic imports
-// TODO something about strict null check ain't right
-// TODO warn about missing deps
+import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
+import styles from './App.module.css'
 
 const PATH_TO_DATA = 'public/data/data.json'
-const EMPTY_ARR = []
+const EMPTY_ARR: EntryPreviewProps[] = []
 
 export const App: React.FC = () => {
-    const [data, setData] = useState<Template[]>([])
+    const [data, setData] = useState<ReadonlyArray<Template>>([])
     const [currentTemplate, setCurrentTemplate] = useState<string>('')
     const [currentEntry, setCurrentEntry] = useState<string>('')
 
@@ -28,8 +25,8 @@ export const App: React.FC = () => {
 
         setData(newData)
         setCurrentTemplate(newData[0]?.name || '')
-        setCurrentEntry(newData[0]?.entries[0]?.date || '')
-    }, [currentTemplate, currentEntry, data])
+        setCurrentEntry(newData[0]?.entries[0]?.date || '') // TODO make typescript guard this
+    }, [data])
 
     useEffect(() => {
         fetch(PATH_TO_DATA)
@@ -64,7 +61,7 @@ export const App: React.FC = () => {
                 previewEntries={entries}
                 templateName={currentTemplate || ''}
             />
-            <Entry entryDate={currentEntry || 'No entry selected'} entryText={entryText} />
+            <Entry date={currentEntry || 'No entry selected'} text={entryText} />
         </main>
     )
 }

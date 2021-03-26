@@ -1,9 +1,9 @@
-import React, {useCallback} from 'react'
+import React, { useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
 
-import styles from './EntriesSection.module.css'
-import { SectionHeader } from '../SectionHeader/SectionHeader'
 import { EntryPreview, EntryPreviewProps } from './EntryPreview/EntryPreview'
+import { SectionHeader } from '../SectionHeader/SectionHeader'
+import styles from './EntriesSection.module.css'
 
 interface EntriesSectionProps {
     templateName: string

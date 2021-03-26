@@ -1,7 +1,7 @@
 import React from 'react'
 
-import styles from './EntryPreview.module.css'
 import TrashIcon from 'Media/trash.component.svg'
+import styles from './EntryPreview.module.css'
 
 export interface EntryPreviewProps {
     date: string

@@ -8,7 +8,8 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -44,6 +45,7 @@
         "no-extra-parens": ["error", "all", { "ignoreJSX": "all" }],
         "no-trailing-spaces": "error",
         "no-unused-vars": ["warn"],
+        "object-curly-spacing": ["error", "always"],
         "prefer-const": "error",
         "quotes": ["error", "single"],
         "react/destructuring-assignment": ["error", "always"],
@@ -51,6 +53,7 @@
         "react/jsx-tag-spacing": 1,
         "react/prop-types": "off",
         "semi": ["error", "never"],
+        "sort-imports": ["error", { "allowSeparatedGroups": true }],
         "sort-keys": "error"
     }
 }

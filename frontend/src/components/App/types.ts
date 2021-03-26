@@ -1,4 +1,4 @@
-import {ThemesEnum} from '../../enums/themes'
+import { ThemesEnum } from '../../enums/themes'
 
 export interface Entry {
     date: string

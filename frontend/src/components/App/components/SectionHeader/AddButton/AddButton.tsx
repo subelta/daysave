@@ -1,7 +1,7 @@
 import React from 'react'
 
-import styles from './AddButton.module.css'
 import addIcon from '../../../../../media/plus.svg'
+import styles from './AddButton.module.css'
 
 interface Props {
     className?: string

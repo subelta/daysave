@@ -1,12 +1,12 @@
-import React, {useCallback} from 'react'
+import React, { useCallback } from 'react'
 import { v4 as uuid } from 'uuid'
 
 import PencilIcon from 'Media/pencil.component.svg'
-import TrashIcon from 'Media/trash.component.svg'
-import styles from './TemplatesSection.module.css'
 import { SectionHeader } from '../SectionHeader/SectionHeader'
 import { ThemesEnum } from '../../../../enums/themes'
+import TrashIcon from 'Media/trash.component.svg'
 import { getParentsAttribute } from 'Utils/dom'
+import styles from './TemplatesSection.module.css'
 
 interface Template {
     name: string
@@ -32,7 +32,7 @@ export const TemplatesSection: React.FC<Props> = props => {
         } else {
             onChoseClick(template)
         }
-    }, [onDeleteCLick, onChoseClick]) // TODO warn about missing deps
+    }, [onChoseClick, onDeleteCLick])
 
     return (
         <section className={styles.container}>

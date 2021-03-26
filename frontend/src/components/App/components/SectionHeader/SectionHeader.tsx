@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 
-import styles from './SectionHeader.module.css'
 import { AddButton } from './AddButton/AddButton'
+import styles from './SectionHeader.module.css'
 
 interface Props {
     buttonText: string
