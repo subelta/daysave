@@ -16,7 +16,10 @@ export const EntryPreview: React.FC<EntryPreviewProps> = props => {
     const { date, onChooseClick, onDeleteCLick, templateName, text } = props
 
     const handleClick = useCallback(e => {
-        if (e.target.classList.contains(styles.trash)) {
+        if (
+            e.target.classList.contains(styles.trash) ||
+            e.target.parentElement.classList.contains(styles.trash)
+        ) {
             onDeleteCLick(date, templateName)
         } else {
             onChooseClick(date)

@@ -27,7 +27,10 @@ export const TemplatesSection: React.FC<Props> = props => {
     const handleClick = useCallback(e => {
         const template = getParentsAttribute(e.target, 'LI', 'data-template')
 
-        if (e.target.classList.contains(styles.trash)) {
+        if (
+            e.target.classList.contains(styles.trash) ||
+            e.target.parentElement.classList.contains(styles.trash)
+        ) {
             onDeleteCLick(template)
         } else {
             onChooseClick(template)
