@@ -34,6 +34,24 @@ export const App: React.FC = () => {
         setCurrentEntry(newData[0]?.entries[0]?.date || '') // TODO make typescript guard this
     }, [data])
 
+    const handleChooseEntry = useCallback((entryDate) => {
+        setCurrentEntry(entryDate)
+    }, [])
+
+    const handleDeleteEntry = useCallback((entryDate, templateName) => {
+        const newData = data.map(template => ({
+            ...template,
+            entries: template.entries
+                .map(entry => ({ ...entry }))
+                .filter(entry => template.name !== templateName || entry.date !== entryDate)
+        }))
+
+        setData(newData)
+        if (currentEntry === entryDate) {
+            setCurrentEntry(newData.find(template => template.name === templateName)?.entries[0]?.date || '')
+        }
+    }, [currentEntry, data])
+
     useEffect(() => {
         fetch(PATH_TO_DATA)
             .then(response => response.json())
@@ -64,6 +82,8 @@ export const App: React.FC = () => {
                 />
             </section>
             <EntriesSection
+                onChooseClick={handleChooseEntry}
+                onDeleteCLick={handleDeleteEntry}
                 previewEntries={entries}
                 templateName={currentTemplate || ''}
             />
