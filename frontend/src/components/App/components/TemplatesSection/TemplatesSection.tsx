@@ -15,24 +15,24 @@ interface Template {
 
 interface Props {
     templates: Template[]
-    onChoseClick: (template: string) => void
-    onDeleteCLick: (template: string) => void
+    onChooseClick: (templateName: string) => void
+    onDeleteCLick: (templateName: string) => void
 }
 
 export const TemplatesSection: React.FC<Props> = props => {
-    const { onChoseClick, onDeleteCLick, templates } = props
+    const { onChooseClick, onDeleteCLick, templates } = props
 
     const handleAddClick = useCallback(() => undefined, [])
 
-    const handleChooseClick = useCallback(e => {
+    const handleClick = useCallback(e => {
         const template = getParentsAttribute(e.target, 'LI', 'data-template')
 
         if (e.target.classList.contains(styles.trash)) {
             onDeleteCLick(template)
         } else {
-            onChoseClick(template)
+            onChooseClick(template)
         }
-    }, [onChoseClick, onDeleteCLick])
+    }, [onChooseClick, onDeleteCLick])
 
     return (
         <section className={styles.container}>
@@ -40,7 +40,7 @@ export const TemplatesSection: React.FC<Props> = props => {
             <ul className={styles.templatesList}>
                 {templates.map(template => (
                     <li data-template={template.name} key={uuid()}>
-                        <button className={styles.templateBtn} onClick={handleChooseClick}>
+                        <button className={styles.templateBtn} onClick={handleClick}>
                             <span className={styles.templateInfo}>
                                 <span className={styles.colorSquare} style={{ background: template.theme }} />
                                 <span className={styles.templateName}>

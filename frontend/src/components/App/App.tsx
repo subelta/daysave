@@ -21,8 +21,13 @@ export const App: React.FC = () => {
         setCurrentEntry(data.find(item => item.name === template)?.entries[0]?.date || '')
     }, [data])
 
-    const handleDeleteTemplate = useCallback((template: string) => {
-        const newData = data.filter(items => items.name !== template)
+    const handleDeleteTemplate = useCallback((templateName: string) => {
+        const newData = data
+            .filter(template => template.name !== templateName)
+            .map(template => ({
+                ...template,
+                entries: template.entries.map(entry => ({ ...entry }))
+            }))
 
         setData(newData)
         setCurrentTemplate(newData[0]?.name || '')
