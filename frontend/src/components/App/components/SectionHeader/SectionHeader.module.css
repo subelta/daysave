@@ -1,18 +1,18 @@
 @import url("~StyleSettings/index.css");
 
 :root {
-    --sectionHeaderHeight: 133px;
+    --section-header-height: 121px;
 }
 
 .container {
-    height: var(--sectionHeaderHeight);
+    height: var(--section-header-height);
     margin-left: 18px;
     position: relative;
 }
 
 .heading {
     margin: 0;
-    line-height: 28px;
+    line-height: var(--section-heading-line-height);
     font-weight: 400;
     font-size: 24px;
 }

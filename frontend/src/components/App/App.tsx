@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import { AccountLink } from './components/AccountLink/AccountLink'
 import { EntriesSection } from './components/EntriesSection/EntriesSection'
-import { Entry } from './components/EntrySection/Entry'
 import { EntryPreviewProps } from './components/EntriesSection/EntryPreview/EntryPreview'
+import { EntrySection } from './components/EntrySection/EntrySection'
 import { Template } from '../../types'
 import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
 import styles from './App.module.css'
@@ -91,7 +91,12 @@ export const App: React.FC = () => {
                 templateName={currentTemplate || ''}
                 theme={theme}
             />
-            <Entry date={currentEntry || 'No entry selected'} text={entryText} />
+            <EntrySection
+                date={currentEntry || ''}
+                onDeleteClick={handleDeleteEntry}
+                templateName={currentTemplate}
+                text={entryText}
+            />
         </main>
     )
 }

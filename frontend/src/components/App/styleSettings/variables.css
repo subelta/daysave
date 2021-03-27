@@ -1,6 +1,8 @@
 :root {
-    --topRowHeight: 67px;
+    --top-row-height: 81px;
+    --section-heading-line-height: 28px;
     --columns-width-sum: 600px;
+    --border-radius: 4px;
 
     --main-font: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
 

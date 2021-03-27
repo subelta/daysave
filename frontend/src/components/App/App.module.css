@@ -16,7 +16,7 @@
 
     display: grid;
     grid-template-areas: 'idk' 'entriesTemplatesSection';
-    grid-template-rows: var(--topRowHeight) auto;
+    grid-template-rows: calc(var(--top-row-height) - (var(--section-heading-line-height) / 2)) auto;
 }
 
 .accountLink {

@@ -1,0 +1,27 @@
+@import url("~StyleSettings/index.css");
+
+.btn {
+    font-size: 12px;
+    line-height: 32px;
+    height: 32px;
+    padding: 0 24px 0 16px;
+
+    cursor: pointer;
+    color: var(--color-white);
+    background-color: var(--color-danger);
+    border-radius: var(--border-radius);
+}
+
+.btn[disabled] {
+    cursor: default;
+    background-color: var(--color-danger-disabled);
+}
+
+.trash {
+    vertical-align: -3px;
+    padding-right: 8px;
+}
+
+.trash > path {
+    stroke: var(--color-white);
+}
