@@ -4,7 +4,7 @@ import { AccountLink } from './components/AccountLink/AccountLink'
 import { EntriesSection } from './components/EntriesSection/EntriesSection'
 import { Entry } from './components/EntrySection/Entry'
 import { EntryPreviewProps } from './components/EntriesSection/EntryPreview/EntryPreview'
-import { Template } from './types'
+import { Template } from '../../types'
 import { TemplatesSection } from './components/TemplatesSection/TemplatesSection'
 import styles from './App.module.css'
 
@@ -70,6 +70,9 @@ export const App: React.FC = () => {
     const entryText = entries
         .find(entry => entry.date === currentEntry)
         ?.text || ''
+    const theme = data
+        .find(template => template.name === currentTemplate)
+        ?.theme || ''
 
     return (
         <main className={styles.app}>
@@ -86,6 +89,7 @@ export const App: React.FC = () => {
                 onDeleteCLick={handleDeleteEntry}
                 previewEntries={entries}
                 templateName={currentTemplate || ''}
+                theme={theme}
             />
             <Entry date={currentEntry || 'No entry selected'} text={entryText} />
         </main>

@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { pickThemedClassName } from 'Utils/themes'
 import { v4 as uuid } from 'uuid'
 
 import PencilIcon from 'Media/pencil.component.svg'
@@ -15,6 +16,7 @@ interface Template {
 
 interface Props {
     templates: Template[]
+
     onChooseClick: (templateName: string) => void
     onDeleteCLick: (templateName: string) => void
 }
@@ -45,7 +47,9 @@ export const TemplatesSection: React.FC<Props> = props => {
                     <li data-template={template.name} key={uuid()}>
                         <button className={styles.templateBtn} onClick={handleClick}>
                             <span className={styles.templateInfo}>
-                                <span className={styles.colorSquare} style={{ background: template.theme }} />
+                                <span
+                                    className={`${styles.colorSquare} ${pickThemedClassName(styles, template.theme)}`}
+                                />
                                 <span className={styles.templateName}>
                                     {template.name}
                                 </span>

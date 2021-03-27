@@ -17,7 +17,6 @@ declare module '*.component.svg' {
     import * as React from 'react'
 
     const src: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-    // noinspection JSDuplicatedDeclaration
     export default src
 }
 
@@ -31,6 +30,8 @@ declare module '*.svg' {
 }
 
 declare module '*.module.css' {
-    const classes: { [key: string]: string };
+    import { Styles } from './types'
+
+    const classes: Styles;
     export default classes
 }

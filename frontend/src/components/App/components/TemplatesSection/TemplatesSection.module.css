@@ -41,6 +41,26 @@
     border-radius: 3px;
 }
 
+.colorSquare.green {
+    background-color: var(--style-green-preview);
+}
+
+.colorSquare.grey {
+    background-color: var(--style-grey-preview);
+}
+
+.colorSquare.pink {
+    background-color: var(--style-pink-preview);
+}
+
+.colorSquare.purple {
+    background-color: var(--style-purple-preview);
+}
+
+.colorSquare.yellow {
+    background-color: var(--style-yellow-preview);
+}
+
 .templateName {
     padding-left: 13px;
     font-size: 14px;

@@ -1,12 +1,47 @@
 @import url("~StyleSettings/index.css");
 
+.container.green {
+    --style-current-default: var(--style-green-default);
+    --style-current-selected: var(--style-green-selected);
+    --style-current-border: var(--style-green-border);
+    --style-current-preview: var(--style-green-preview);
+}
+
+.container.grey {
+    --style-current-default: var(--style-grey-default);
+    --style-current-selected: var(--style-grey-selected);
+    --style-current-border: var(--style-grey-border);
+    --style-current-preview: var(--style-grey-preview);
+}
+
+.container.pink {
+    --style-current-default: var(--style-pink-default);
+    --style-current-selected: var(--style-pink-selected);
+    --style-current-border: var(--style-pink-border);
+    --style-current-preview: var(--style-pink-preview);
+}
+
+.container.purple {
+    --style-current-default: var(--style-purple-default);
+    --style-current-selected: var(--style-purple-selected);
+    --style-current-border: var(--style-purple-border);
+    --style-current-preview: var(--style-purple-preview);
+}
+
+.container.yellow {
+    --style-current-default: var(--style-yellow-default);
+    --style-current-selected: var(--style-yellow-selected);
+    --style-current-border: var(--style-yellow-border);
+    --style-current-preview: var(--style-yellow-preview);
+}
+
 .container {
     display: grid;
     grid-template-areas: 'idk' 'entriesContainer';
     grid-template-rows: var(--topRowHeight) auto;
 
-    background-color: var(--style-grey-default);
-    border-right: 1px solid var(--style-grey-border);
+    background-color: var(--style-current-default);
+    border-right: 1px solid var(--style-current-border);
 }
 
 .entriesContainerGridArea {
@@ -14,7 +49,7 @@
 }
 
 .entriesList {
-    border-top: 1px solid var(--style-grey-border);
+    border-top: 1px solid var(--style-current-border);
 
     list-style: none;
     margin: 0;

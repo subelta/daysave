@@ -108,5 +108,27 @@
                 "text": "some yellow logfyjguhjk b gjh lk"
             }
         ]
+    },
+    {
+        "name": "some pink log",
+        "theme": "pink",
+        "entries": [
+            {
+                "date": "1 mar",
+                "text": "some PINK logellow"
+            },
+            {
+                "date": "29 feb",
+                "text": "some PINK logyellow"
+            },
+            {
+                "date": "28 feb",
+                "text": "some PINK loghj ihkj lik"
+            },
+            {
+                "date": "27 feb",
+                "text": "some PINK logfyjguhjk b gjh lk"
+            }
+        ]
     }
 ]

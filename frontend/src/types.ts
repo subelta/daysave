@@ -1,5 +1,11 @@
-import { ThemesEnum } from '../../enums/themes'
+import { ThemesEnum } from './enums/themes'
 
+// generic
+export interface Styles {
+    [className: string]: string
+}
+
+// app-specific
 export interface Entry {
     date: string
     text: string

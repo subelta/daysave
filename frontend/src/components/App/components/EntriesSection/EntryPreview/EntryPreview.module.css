@@ -5,11 +5,11 @@
     width: 100%;
     text-align: start;
     cursor: pointer;
-    border-bottom: 1px solid var(--style-grey-border);
+    border-bottom: 1px solid var(--style-current-border);
 }
 
 .containerBtn:hover {
-    background-color: var(--style-grey-selected);
+    background-color: var(--style-current-selected);
 }
 
 .block {
