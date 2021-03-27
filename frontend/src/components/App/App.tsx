@@ -16,9 +16,9 @@ export const App: React.FC = () => {
     const [currentTemplate, setCurrentTemplate] = useState<string>('')
     const [currentEntry, setCurrentEntry] = useState<string>('')
 
-    const handleChooseTemplate = useCallback((template: string) => {
-        setCurrentTemplate(template)
-        setCurrentEntry(data.find(item => item.name === template)?.entries[0]?.date || '')
+    const handleChooseTemplate = useCallback((templateName: string) => {
+        setCurrentTemplate(templateName)
+        setCurrentEntry(data.find(item => item.name === templateName)?.entries[0]?.date || '')
     }, [data])
 
     const handleDeleteTemplate = useCallback((templateName: string) => {

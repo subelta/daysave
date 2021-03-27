@@ -1,9 +1,5 @@
 @import url("~StyleSettings/index.css");
 
-:root {
-    --section-header-height: 121px;
-}
-
 .container {
     height: var(--section-header-height);
     margin-left: 18px;

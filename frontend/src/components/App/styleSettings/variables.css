@@ -1,5 +1,6 @@
 :root {
     --top-row-height: 81px;
+    --section-header-height: 121px;
     --section-heading-line-height: 28px;
     --columns-width-sum: 600px;
     --border-radius: 4px;

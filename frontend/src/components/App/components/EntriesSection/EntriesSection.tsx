@@ -26,7 +26,7 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
             <div className={styles.entriesContainerGridArea}>
                 <SectionHeader
                     headingText={`${templateName} entries`}
-                    buttonText={'New EntrySection'}
+                    buttonText={'New entry'}
                     onClick={handleClick}
                 />
                 <ul className={styles.entriesList}>
