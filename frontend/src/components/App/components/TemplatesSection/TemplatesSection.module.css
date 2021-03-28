@@ -29,6 +29,10 @@
     background-color: var(--color-template-hover);
 }
 
+.templateBtn.selected.selected {
+    background-color: var(--color-template-selected);
+}
+
 .templateInfo {
     display: flex;
     align-items: center;

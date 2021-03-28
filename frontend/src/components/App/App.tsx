@@ -79,12 +79,14 @@ export const App: React.FC = () => {
             <section className={styles.leftColumn}>
                 <AccountLink className={styles.accountLink} />
                 <TemplatesSection
+                    currentTemplate={currentTemplate}
                     onChooseClick={handleChooseTemplate}
                     onDeleteCLick={handleDeleteTemplate}
                     templates={templates}
                 />
             </section>
             <EntriesSection
+                currentEntry={currentEntry}
                 onChooseClick={handleChooseEntry}
                 onDeleteCLick={handleDeleteEntry}
                 previewEntries={entries}

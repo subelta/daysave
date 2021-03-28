@@ -5,6 +5,7 @@ import styles from './EntryPreview.module.css'
 
 export interface EntryPreviewProps {
     date: string
+    isSelected: boolean
     templateName: string
     text: string
 
@@ -13,7 +14,7 @@ export interface EntryPreviewProps {
 }
 
 export const EntryPreview: React.FC<EntryPreviewProps> = props => {
-    const { date, onChooseClick, onDeleteCLick, templateName, text } = props
+    const { date, isSelected, onChooseClick, onDeleteCLick, templateName, text } = props
 
     const handleClick = useCallback(e => {
         if (
@@ -27,7 +28,11 @@ export const EntryPreview: React.FC<EntryPreviewProps> = props => {
     }, [date, onChooseClick, onDeleteCLick, templateName])
 
     return (
-        <button className={styles.containerBtn} title={date} onClick={handleClick}>
+        <button
+            className={`${styles.containerBtn} ${isSelected ? styles.selected : ''}`}
+            onClick={handleClick}
+            title={date}
+        >
             <span className={styles.block}>
                 <span className={styles.header}>
                     <span className={styles.heading}>{date}</span>

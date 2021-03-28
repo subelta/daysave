@@ -15,6 +15,7 @@ interface Template {
 }
 
 interface Props {
+    currentTemplate: string
     templates: Template[]
 
     onChooseClick: (templateName: string) => void
@@ -22,7 +23,7 @@ interface Props {
 }
 
 export const TemplatesSection: React.FC<Props> = props => {
-    const { onChooseClick, onDeleteCLick, templates } = props
+    const { currentTemplate, onChooseClick, onDeleteCLick, templates } = props
 
     const handleAddClick = useCallback(() => undefined, [])
 
@@ -45,7 +46,12 @@ export const TemplatesSection: React.FC<Props> = props => {
             <ul className={styles.templatesList}>
                 {templates.map(template => (
                     <li data-template={template.name} key={uuid()}>
-                        <button className={styles.templateBtn} onClick={handleClick}>
+                        <button
+                            className={
+                                `${styles.templateBtn} ${currentTemplate === template.name ? styles.selected : ''}`
+                            }
+                            onClick={handleClick}
+                        >
                             <span className={styles.templateInfo}>
                                 <span
                                     className={`${styles.colorSquare} ${pickThemedClassName(styles, template.theme)}`}

@@ -8,6 +8,7 @@ import { SectionHeader } from '../SectionHeader/SectionHeader'
 import styles from './EntriesSection.module.css'
 
 interface EntriesSectionProps {
+    currentEntry: string
     previewEntries: Entry[]
     templateName: string
     theme: string
@@ -17,7 +18,7 @@ interface EntriesSectionProps {
 }
 
 export const EntriesSection: React.FC<EntriesSectionProps> = props => {
-    const { onChooseClick, onDeleteCLick, previewEntries, templateName, theme } = props
+    const { currentEntry, onChooseClick, onDeleteCLick, previewEntries, templateName, theme } = props
 
     const handleClick = useCallback(() => undefined, [])
 
@@ -33,6 +34,7 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
                     {previewEntries.map(obj => (
                         <li key={uuid()}>
                             <EntryPreview
+                                isSelected={currentEntry === obj.date}
                                 onChooseClick={onChooseClick}
                                 onDeleteCLick={onDeleteCLick}
                                 templateName={templateName}

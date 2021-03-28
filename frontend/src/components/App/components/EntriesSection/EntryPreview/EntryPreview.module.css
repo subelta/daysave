@@ -12,6 +12,10 @@
     background-color: var(--style-current-selected);
 }
 
+.containerBtn.selected.selected {
+    background-color: var(--style-current-selected);
+}
+
 .block {
     display: block;
     height: 108px;
