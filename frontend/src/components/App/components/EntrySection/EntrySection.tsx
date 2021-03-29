@@ -21,7 +21,7 @@ export const EntrySection: React.FC<Props> = props => {
         <section className={styles.container}>
             <article className={styles.entry}>
                 <header className={styles.header}>
-                    <h2 className={styles.heading}>{date || 'No entry selected'}</h2>
+                    <h2 className={styles.heading}>{date || 'None'}</h2>
                     <DangerButton
                         className={styles.btnAdjust}
                         disabled={!date}

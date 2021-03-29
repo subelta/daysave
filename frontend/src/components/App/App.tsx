@@ -30,9 +30,11 @@ export const App: React.FC = () => {
             }))
 
         setData(newData)
-        setCurrentTemplate(newData[0]?.name || '')
-        setCurrentEntry(newData[0]?.entries[0]?.date || '') // TODO make typescript guard this
-    }, [data])
+        if (currentTemplate === templateName) {
+            setCurrentTemplate(newData[0]?.name || '')
+            setCurrentEntry(newData[0]?.entries[0]?.date || '') // TODO make typescript guard this
+        }
+    }, [currentTemplate, data])
 
     const handleChooseEntry = useCallback((entryDate) => {
         setCurrentEntry(entryDate)
