@@ -1,22 +1,16 @@
 import React, { useCallback } from 'react'
-import { pickThemedClassName } from 'Utils/themes'
 import { v4 as uuid } from 'uuid'
 
-import PencilIcon from 'Media/pencil.component.svg'
 import { SectionHeader } from '../SectionHeader/SectionHeader'
-import { ThemesEnum } from '../../../../enums/themes'
-import TrashIcon from 'Media/trash.component.svg'
+import { Template } from './Template'
+import { TemplateSimple } from '../../../../types'
 import { getParentsAttribute } from 'Utils/dom'
 import styles from './TemplatesSection.module.css'
-
-interface Template {
-    name: string
-    theme: ThemesEnum
-}
+import templateStyles from './Template.module.css'
 
 interface Props {
     currentTemplate: string
-    templates: Template[]
+    templates: TemplateSimple[]
 
     onChooseClick: (templateName: string) => void
     onDeleteCLick: (templateName: string) => void
@@ -31,8 +25,8 @@ export const TemplatesSection: React.FC<Props> = props => {
         const template = getParentsAttribute(e.target, 'LI', 'data-template')
 
         if (
-            e.target.classList.contains(styles.trash) ||
-            e.target.parentElement.classList.contains(styles.trash)
+            e.target.classList.contains(templateStyles.trash) ||
+            e.target.parentElement.classList.contains(templateStyles.trash)
         ) {
             onDeleteCLick(template)
         } else {
@@ -46,25 +40,7 @@ export const TemplatesSection: React.FC<Props> = props => {
             <ul className={styles.templatesList}>
                 {templates.map(template => (
                     <li data-template={template.name} key={uuid()}>
-                        <button
-                            className={
-                                `${styles.templateBtn} ${currentTemplate === template.name ? styles.selected : ''}`
-                            }
-                            onClick={handleClick}
-                        >
-                            <span className={styles.templateInfo}>
-                                <span
-                                    className={`${styles.colorSquare} ${pickThemedClassName(styles, template.theme)}`}
-                                />
-                                <span className={styles.templateName}>
-                                    {template.name}
-                                </span>
-                            </span>
-                            <span>
-                                <PencilIcon className={styles.pencil} />
-                                <TrashIcon className={styles.trash} />
-                            </span>
-                        </button>
+                        <Template currentTemplate={currentTemplate} template={template} handleClick={handleClick} />
                     </li>
                 ))}
             </ul>

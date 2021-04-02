@@ -1,0 +1,81 @@
+@import url("~StyleSettings/index.css");
+
+.templateBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    width: 100%;
+    padding: 0 19px 0 20px;
+    height: 54px;
+}
+
+.templateBtn:hover {
+    background-color: var(--color-template-hover);
+}
+
+.templateBtn.selected.selected {
+    background-color: var(--color-template-selected);
+}
+
+.templateInfo {
+    display: flex;
+    align-items: center;
+}
+
+.colorSquare {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+}
+
+.colorSquare.green {
+    background-color: var(--style-green-preview);
+}
+
+.colorSquare.grey {
+    background-color: var(--style-grey-preview);
+}
+
+.colorSquare.pink {
+    background-color: var(--style-pink-preview);
+}
+
+.colorSquare.purple {
+    background-color: var(--style-purple-preview);
+}
+
+.colorSquare.yellow {
+    background-color: var(--style-yellow-preview);
+}
+
+.templateName {
+    padding-left: 13px;
+    font-size: 14px;
+    color: var(--color-white);
+}
+
+.pencil {
+    margin-right: 12px;
+}
+
+.pencil > path,
+.trash > path {
+    stroke-opacity: 0;
+    transition: stroke 0.2s;
+}
+
+.templateBtn:hover .pencil > path,
+.templateBtn:hover .trash > path {
+    stroke-opacity: 1;
+}
+
+.pencil:hover > path {
+    stroke: var(--color-white);
+}
+
+.trash:hover > path {
+    stroke: var(--color-trash-hover);
+}

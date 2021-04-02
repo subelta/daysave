@@ -16,3 +16,8 @@ export interface Template {
     name: string
     theme: ThemesEnum
 }
+
+export interface TemplateSimple {
+    name: string
+    theme: ThemesEnum
+}
