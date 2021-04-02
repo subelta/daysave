@@ -16,9 +16,12 @@ interface EditValues {
     themeInd: number
 }
 
+type EditState = 'editing' | 'error' | 'not editing'
+
 interface Props {
     currentTemplate: string
-    template: TemplateSimple
+    templateNames: string[]
+    thisTemplate: TemplateSimple
 
     onChooseClick: (templateName: string) => void
     onDeleteCLick: (templateName: string) => void
@@ -26,15 +29,15 @@ interface Props {
 }
 
 export const Template: React.FC<Props> = props => {
-    const { currentTemplate, onChooseClick, onDeleteCLick, onSaveClick, template } = props
-    const { name, theme } = template
+    const { currentTemplate, onChooseClick, onDeleteCLick, onSaveClick, templateNames, thisTemplate } = props
+    const { name, theme } = thisTemplate
 
-    const [editState, setEditState] = useState<boolean>(false)
+    const [editState, setEditState] = useState<EditState>('not editing')
     const [editValues, setEditValues] = useState<EditValues>({ input: name, themeInd: THEMES.indexOf(theme) })
 
     useEffect(() => {
         if (currentTemplate !== name) {
-            setEditState(false)
+            setEditState('not editing')
             setEditValues({ input: name, themeInd: THEMES.indexOf(theme) })
         }
     }, [currentTemplate, name, theme])
@@ -45,7 +48,7 @@ export const Template: React.FC<Props> = props => {
         const isTrash = t.classList.contains(styles.trash) || t.parentElement.classList.contains(styles.trash)
 
         if (isPencil) {
-            setEditState(true)
+            setEditState('editing')
             onChooseClick(name)
         } else if (isTrash) {
             onDeleteCLick(name)
@@ -56,8 +59,11 @@ export const Template: React.FC<Props> = props => {
 
     const handleChange = useCallback(e => {
         const value = e.target.value
+        if (editState === 'error' && value !== editValues.input) {
+            setEditState('editing')
+        }
         setEditValues(state => ({ input: value, themeInd: state.themeInd }))
-    }, [])
+    }, [editState, editValues.input])
 
     const handleThemeClick = useCallback(() => {
         setEditValues(
@@ -66,18 +72,22 @@ export const Template: React.FC<Props> = props => {
     }, [])
 
     const handleDiskClick = useCallback(() => {
-        setEditState(false)
-        onSaveClick(editValues.input, name, THEMES[editValues.themeInd])
-    }, [editValues, name, onSaveClick])
+        if (name !== editValues.input && templateNames.find(template => template === editValues.input)) {
+            setEditState('error')
+        } else {
+            setEditState('not editing')
+            onSaveClick(editValues.input, name, THEMES[editValues.themeInd])
+        }
+    }, [editValues, name, onSaveClick, templateNames])
 
     const handleCancelClick = useCallback(() => {
-        setEditState(false)
+        setEditState('not editing')
         setEditValues({ input: name, themeInd: THEMES.indexOf(theme) })
     }, [name, theme])
 
     return (
         <>
-            {editState ? (
+            {editState !== 'not editing' ? (
                 <div className={styles.container} >
                     <span className={styles.templateInfo}>
                         <button onClick={handleThemeClick} style={{ cursor: 'pointer' }}>
@@ -87,7 +97,11 @@ export const Template: React.FC<Props> = props => {
                                 }
                             />
                         </button>
-                        <input className={styles.input} onChange={handleChange} value={editValues.input} />
+                        <input
+                            className={`${styles.input} ${editState === 'error' ? styles.error : ''}`}
+                            onChange={handleChange}
+                            value={editValues.input}
+                        />
                     </span>
                     <span>
                         <button className={styles.diskBtn} onClick={handleDiskClick}>

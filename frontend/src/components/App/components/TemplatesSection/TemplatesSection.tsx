@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { SectionHeader } from '../SectionHeader/SectionHeader'
 import { Template } from './Template/Template'
@@ -20,6 +20,8 @@ export const TemplatesSection: React.FC<Props> = props => {
 
     const handleAddClick = useCallback(() => undefined, [])
 
+    const templateNames = useMemo(() => templates.map(template => template.name), [templates])
+
     return (
         <section className={styles.container}>
             <SectionHeader headingText={'Templates'} buttonText={'New template'} onClick={handleAddClick} />
@@ -28,7 +30,8 @@ export const TemplatesSection: React.FC<Props> = props => {
                     <li key={template.name}>
                         <Template
                             currentTemplate={currentTemplate}
-                            template={template}
+                            templateNames={templateNames}
+                            thisTemplate={template}
                             onChooseClick={onChooseClick}
                             onDeleteCLick={onDeleteCLick}
                             onSaveClick={onSaveClick}
