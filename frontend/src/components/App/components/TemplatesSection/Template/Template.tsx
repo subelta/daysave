@@ -34,6 +34,12 @@ export const Template: React.FC<Props> = props => {
 
     const [editState, setEditState] = useState<EditState>('not editing')
     const [editValues, setEditValues] = useState<EditValues>({ input: name, themeInd: THEMES.indexOf(theme) })
+    const [, setInputRef] = useState<HTMLInputElement | null>(null)
+
+    const onSetRef = useCallback(ref => {
+        setInputRef(ref)
+        ref?.focus()
+    }, [])
 
     useEffect(() => {
         if (currentTemplate !== name) {
@@ -41,6 +47,7 @@ export const Template: React.FC<Props> = props => {
             setEditValues({ input: name, themeInd: THEMES.indexOf(theme) })
         }
     }, [currentTemplate, name, theme])
+
 
     const handleClick = useCallback(e => {
         const t = e.target
@@ -57,6 +64,7 @@ export const Template: React.FC<Props> = props => {
         }
     }, [name, onDeleteCLick, onChooseClick])
 
+
     const handleChange = useCallback(e => {
         const value = e.target.value
         if (editState === 'error' && value !== editValues.input) {
@@ -65,20 +73,41 @@ export const Template: React.FC<Props> = props => {
         setEditValues(state => ({ input: value, themeInd: state.themeInd }))
     }, [editState, editValues.input])
 
+
+    const handleKeyDown = useCallback(e => {
+        if (e.key === 'Enter') {
+            const { input, themeInd } = editValues
+            const alreadyUsed = name !== input && templateNames.find(template => template === input)
+
+            if (alreadyUsed || !input) {
+                setEditState('error')
+            } else {
+                setEditState('not editing')
+                onSaveClick(input, name, THEMES[themeInd])
+            }
+        }
+    }, [editValues, name, onSaveClick, templateNames])
+
+
     const handleThemeClick = useCallback(() => {
         setEditValues(
             ({ input, themeInd }) => ({ input, themeInd: (themeInd + 1) % THEMES.length })
         )
     }, [])
 
+
     const handleDiskClick = useCallback(() => {
-        if (name !== editValues.input && templateNames.find(template => template === editValues.input)) {
+        const { input, themeInd } = editValues
+        const alreadyUsed = name !== input && templateNames.find(template => template === input)
+
+        if (alreadyUsed || !input) {
             setEditState('error')
         } else {
             setEditState('not editing')
-            onSaveClick(editValues.input, name, THEMES[editValues.themeInd])
+            onSaveClick(input, name, THEMES[themeInd])
         }
     }, [editValues, name, onSaveClick, templateNames])
+
 
     const handleCancelClick = useCallback(() => {
         setEditState('not editing')
@@ -100,6 +129,8 @@ export const Template: React.FC<Props> = props => {
                         <input
                             className={`${styles.input} ${editState === 'error' ? styles.error : ''}`}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            ref={onSetRef}
                             value={editValues.input}
                         />
                     </span>
