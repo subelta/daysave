@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import CancelIcon from 'Media/cancel.component.svg'
 import DiskIcon from 'Media/disk.component.svg'
@@ -32,6 +32,13 @@ export const Template: React.FC<Props> = props => {
     const [editState, setEditState] = useState<boolean>(false)
     const [editValues, setEditValues] = useState<EditValues>({ input: name, themeInd: THEMES.indexOf(theme) })
 
+    useEffect(() => {
+        if (currentTemplate !== name) {
+            setEditState(false)
+            setEditValues({ input: name, themeInd: THEMES.indexOf(theme) })
+        }
+    }, [currentTemplate, name, theme])
+
     const handleClick = useCallback(e => {
         const t = e.target
         const isPencil = t.classList.contains(styles.pencil) || t.parentElement.classList.contains(styles.pencil)
@@ -39,6 +46,7 @@ export const Template: React.FC<Props> = props => {
 
         if (isPencil) {
             setEditState(true)
+            onChooseClick(name)
         } else if (isTrash) {
             onDeleteCLick(name)
         } else {

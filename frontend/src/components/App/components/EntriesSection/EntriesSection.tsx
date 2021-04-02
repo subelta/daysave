@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
 import { pickThemedClassName } from 'Utils/themes'
-import { v4 as uuid } from 'uuid'
 
 import { Entry } from '../../../../types'
 import { EntryPreview } from './EntryPreview/EntryPreview'
@@ -32,7 +31,7 @@ export const EntriesSection: React.FC<EntriesSectionProps> = props => {
                 />
                 <ul className={styles.entriesList}>
                     {previewEntries.map(obj => (
-                        <li key={uuid()}>
+                        <li key={`${templateName}-${obj.date}`}>
                             <EntryPreview
                                 isSelected={currentEntry === obj.date}
                                 onChooseClick={onChooseClick}
