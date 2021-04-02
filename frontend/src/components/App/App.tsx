@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { ThemesEnum } from '../../enums/themes'
 
 import { AccountLink } from './components/AccountLink/AccountLink'
 import { EntriesSection } from './components/EntriesSection/EntriesSection'
@@ -12,7 +13,7 @@ const PATH_TO_DATA = 'public/data/data.json'
 const EMPTY_ARR: EntryPreviewProps[] = []
 
 export const App: React.FC = () => {
-    const [data, setData] = useState<ReadonlyArray<Template>>([])
+    const [data, setData] = useState<ReadonlyArray<Template>>([]) // TODO split state
     const [currentTemplate, setCurrentTemplate] = useState<string>('')
     const [currentEntry, setCurrentEntry] = useState<string>('')
 
@@ -33,6 +34,20 @@ export const App: React.FC = () => {
         if (currentTemplate === templateName) {
             setCurrentTemplate(newData[0]?.name || '')
             setCurrentEntry(newData[0]?.entries[0]?.date || '') // TODO make typescript guard this
+        }
+    }, [currentTemplate, data])
+
+    const handleSaveTemplate = useCallback((newName: string, prevName: string, theme: ThemesEnum) => {
+        const newData = data
+            .map(template => ({
+                entries: template.entries.map(entry => ({ ...entry })),
+                name: template.name === prevName ? newName : template.name,
+                theme: template.name === prevName ? theme : template.theme
+            }))
+
+        setData(newData)
+        if (currentTemplate === prevName) {
+            setCurrentTemplate(newName)
         }
     }, [currentTemplate, data])
 
@@ -84,6 +99,7 @@ export const App: React.FC = () => {
                     currentTemplate={currentTemplate}
                     onChooseClick={handleChooseTemplate}
                     onDeleteCLick={handleDeleteTemplate}
+                    onSaveClick={handleSaveTemplate}
                     templates={templates}
                 />
             </section>

@@ -1,21 +1,18 @@
 @import url("~StyleSettings/index.css");
 
-.templateBtn {
+.container,
+.containerBtn {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
 
+    box-sizing: border-box;
     width: 100%;
     padding: 0 19px 0 20px;
     height: 54px;
 }
 
-.templateBtn:hover {
-    background-color: var(--color-template-hover);
-}
-
-.templateBtn.selected.selected {
+.container {
     background-color: var(--color-template-selected);
 }
 
@@ -51,6 +48,37 @@
     background-color: var(--style-yellow-preview);
 }
 
+.input {
+    margin-left: 10px;
+    width: 108px; /* TODO more abstract */
+    border: none;
+    border-radius: 2px;
+
+    padding-left: 3px;
+    color: var(--color-white);
+    font-size: 14px;
+    font-family: var(--main-font);
+    background-color: var(--color-grey-darker);
+}
+
+.diskBtn,
+.cancelBtn {
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.containerBtn {
+    cursor: pointer;
+}
+
+.containerBtn:hover {
+    background-color: var(--color-template-hover);
+}
+
+.containerBtn.selected.selected {
+    background-color: var(--color-template-selected);
+}
+
 .templateName {
     padding-left: 13px;
     font-size: 14px;
@@ -67,8 +95,8 @@
     transition: stroke 0.2s;
 }
 
-.templateBtn:hover .pencil > path,
-.templateBtn:hover .trash > path {
+.containerBtn:hover .pencil > path,
+.containerBtn:hover .trash > path {
     stroke-opacity: 1;
 }
 
