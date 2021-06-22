@@ -10,6 +10,7 @@ import { TemplatesSection } from './components/TemplatesSection/TemplatesSection
 import styles from './App.module.css'
 
 const PATH_TO_DATA = 'public/data/data.json'
+
 const EMPTY_ARR: EntryPreviewProps[] = []
 
 export const App: React.FC = () => {
