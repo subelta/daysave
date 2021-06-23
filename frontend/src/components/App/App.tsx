@@ -13,7 +13,6 @@ const PATH_TO_DATA = 'public/data/data.json'
 const EMPTY_ARR: EntryPreviewProps[] = []
 
 export const App: React.FC = () => {
-
     // eslint-disable-next-line max-len
     const [data, setData] = useState<ReadonlyArray<Template>>([]) // TODO split state. TemplatesSection rerenders when delete entry
     const [currentTemplate, setCurrentTemplate] = useState<string>('')
